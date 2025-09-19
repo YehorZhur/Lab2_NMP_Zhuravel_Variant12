@@ -2,24 +2,21 @@ import numpy as np
 import numdifftools as nd
 import matplotlib.pyplot as plt
 
-# Варіант 12: 9x^4 + 2x^3 + 6x^2 - 3x = 0
 def f(x):
     return 9*x**4 + 2*x**3 + 6*x**2 - 3*x
 
 def find_segments():
-    """Відокремлення коренів аналітично та графічно"""
     search_range = np.arange(-3, 3, 0.1)
     segments = []
     
     for i in range(len(search_range) - 1):
         x1, x2 = search_range[i], search_range[i + 1]
-        if f(x1) * f(x2) < 0:  # Зміна знаку
+        if f(x1) * f(x2) < 0:  
             segments.append((round(x1, 1), round(x2, 1)))
     
     return segments
 
 def bisection_method(a, b, eps=0.0001):
-    """Метод половинного ділення"""
     print(f"\nМетод половинного ділення для відрізка [{a}, {b}]:")
     print("n\ta_n\t\tb_n\t\tx_n\t\tf(x_n)\t\t|b_n - a_n|")
     
@@ -100,9 +97,7 @@ def analytical_root_separation():
     
     return [(0, 0), (-1, 1)] 
 
-print("ЛАБОРАТОРНА РОБОТА 2")
 print("Варіант 12: 9x⁴ + 2x³ + 6x² - 3x = 0")
-print("Точність: ε = 0.0001")
 
 intervals = analytical_root_separation()
 
